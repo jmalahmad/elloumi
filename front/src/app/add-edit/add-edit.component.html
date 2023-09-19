@@ -1,0 +1,62 @@
+<div mat-dialog-title class="title">
+    <h1> CONVENTION</h1>
+</div>
+<form [formGroup]="conventionForm" (ngSubmit)="onFormSumbit()">
+    <div mat-dialog-content>
+        <div class="row">
+            <mat-form-field>
+                <mat-label>Societe 1</mat-label>
+                <input matInput formControlName="societe1">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Societe 2</mat-label>
+                <input matInput formControlName="societe2">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <mat-label>date création</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="date_creation">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>date d'effet</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="date_effet">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="row3">
+            <mat-radio-group aria-label="signature societe 1" formControlName="etat_signature1">
+                <p> signature societe 1
+                </p>
+                <mat-radio-button [value]="true" color="warn">effectuée <i class="fa fa-check " aria-hidden="true "></i></mat-radio-button>
+                <mat-radio-button [value]="false" color="warn">non effectuée <i class="fa fa-times " aria-hidden="true "></i></mat-radio-button>
+            </mat-radio-group>
+
+        </div>
+        <div class="row3">
+            <mat-radio-group aria-label="signature societe 2" formControlName="etat_signature2">
+                <p> signature societe 1
+                </p>
+                <mat-radio-button [value]="true" color="warn">effectuée <i class="fa fa-check " aria-hidden="true "></i></mat-radio-button>
+                <mat-radio-button [value]="false" color="warn">non effectuée <i class="fa fa-times " aria-hidden="true "></i></mat-radio-button>
+            </mat-radio-group>
+
+        </div>
+        <div class="container">
+            <mat-form-field id="cadre">
+                <mat-label>Cadre</mat-label>
+                <textarea matInput formControlName="cadre"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div mat-dialog-actions class="buttons">
+        <button mat-raised-button class="btn-close" id="cancel" (click)="closeDialog()">Anuler</button>
+        <button mat-raised-button color="primary" id="save" type="submit">{{data? "Valider":"Ajouter"}}</button>
+    </div>
+</form>

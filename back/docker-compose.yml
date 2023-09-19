@@ -1,0 +1,32 @@
+version: "3"
+services:
+  convention:
+    build: .
+    image: convention
+    ports:
+      - "8080:8080"
+    networks:
+      - convention-mysql
+    depends_on:
+      - mysqldb
+ 
+  convention-front:
+    build: ../front/
+    image: convention-front
+    ports:
+      - "80:80"
+    networks:
+      - convention-mysql
+    depends_on:
+      - convention
+ 
+  mysqldb:
+    image: mysql:8
+    networks:
+      - convention-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=convention  
+
+networks:
+  convention-mysql:

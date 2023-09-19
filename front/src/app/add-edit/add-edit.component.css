@@ -1,0 +1,42 @@
+.row {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 2vh;
+    margin: 0;
+}
+
+.row3 {
+    padding: 12px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cadre {
+    width: 40vh;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#save {
+    background-color: #45C4B0;
+}
+
+input[type=radio] {
+    accent-color: black;
+    mix-blend-mode: multiply;
+}

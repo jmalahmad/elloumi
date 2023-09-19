@@ -1,0 +1,107 @@
+<head>
+    <title>convention</title>
+</head>
+
+<body class="banner">
+
+    <div>
+
+        <div class="navbar">
+
+            <div class="title">
+                <img src="../assets/images/favpng_handshake-logo.png" class="logo">
+
+                <h1 class="c mainTitle">C</h1>
+                <h1 class="onvention mainTitle">onvention</h1>
+
+            </div>
+            <button type="button" id="logout" (click)="logout()">Déconnexion</button>
+        </div>
+
+
+
+
+        <div class="mylist ">
+            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css " rel="stylesheet " />
+            <div class="container ">
+
+
+                <div class="row ">
+                    <div class="col-12 mb-3 mb-lg-5 ">
+                        <div class="position-relative card table-nowrap table-card ">
+                            <div class="card-header align-items-center ">
+                                <h2 class="mb-0 ">Liste des conventions</h2>
+
+                            </div>
+                            <div class="table-responsive ">
+                                <table class="table mb-0 ">
+                                    <thead class="small text-uppercase bg-body text-muted ">
+                                        <tr>
+                                            <th>Societe 1</th>
+                                            <th>Societe 2</th>
+                                            <th>Date d'effet</th>
+                                            <th>Date de creation</th>
+                                            <th>Singature societe 1</th>
+                                            <th>Singature societe 2</th>
+                                            <th>cadre</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let convention of conventions " class=" align-middle ">
+                                            <td>
+                                                {{convention?.societe1}}
+                                            </td>
+                                            <td> {{convention?.societe2}}</td>
+                                            <td>{{ convention?.date_effet| date:'Y/M/d' }}</td>
+                                            <td>
+                                                {{ convention?.date_effet| date:'Y/M/d' }}
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <ng-container *ngIf="convention?.etat_signature1; else noIcon ">
+                                                        <i class="fa fa-check " aria-hidden="true "></i>
+
+                                                    </ng-container>
+                                                    <ng-template #noIcon>
+                                                        <i class="fa fa-times " aria-hidden="true "></i>
+
+                                                    </ng-template>
+                                                </div>
+
+                                            </td>
+                                            <td><button class="button-table ">
+                                                <ng-container *ngIf="convention?.etat_signature2; else noIcon ">
+                                                    <i class="fa fa-check " aria-hidden="true "></i>
+
+                                                </ng-container>
+                                                <ng-template #noIcon>
+                                                    <i class="fa fa-times " aria-hidden="true "></i>
+
+                                                </ng-template><span class="badge fs-6 fw-normal bg-tint-success text-success "></span>
+                                            </button></td>
+                                            <td>{{convention?.cadre}} </td>
+
+
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="card-footer text-end ">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</body>
