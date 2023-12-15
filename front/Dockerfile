@@ -1,5 +1,5 @@
 FROM node:16-alpine AS build
-WORKDIR .
+WORKDIR /usr/app
 COPY ./ ./
 
 # Install base dependencies
